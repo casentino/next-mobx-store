@@ -1,0 +1,14 @@
+{
+  "name": "@next-mobx-store/core",
+  "version": "0.0.0",
+  "types": "./index.ts",
+  "main": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn rimraf dist && src/index.ts --format cjs --dts",
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "@next-mobx-store/type": "*"
+  }
+}

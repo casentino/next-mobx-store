@@ -1,0 +1,7 @@
+{
+  "name": "@next-mobx-store/type",
+  "version": "0.0.0",
+  "types": "./index.ts",
+  "main": "./index.ts",
+  "license": "MIT"
+}
