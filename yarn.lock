@@ -1905,7 +1905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next-mobx-store/core@workspace:packages/next-mobx-store-core":
+"@next-mobx-store/core@*, @next-mobx-store/core@workspace:packages/next-mobx-store-core":
   version: 0.0.0-use.local
   resolution: "@next-mobx-store/core@workspace:packages/next-mobx-store-core"
   dependencies:
@@ -1916,6 +1916,9 @@ __metadata:
 "@next-mobx-store/hooks@workspace:packages/next-mobx-store-hooks":
   version: 0.0.0-use.local
   resolution: "@next-mobx-store/hooks@workspace:packages/next-mobx-store-hooks"
+  dependencies:
+    "@next-mobx-store/core": "*"
+    "@next-mobx-store/type": "*"
   languageName: unknown
   linkType: soft
 
