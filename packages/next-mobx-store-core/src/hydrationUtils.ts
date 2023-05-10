@@ -6,13 +6,7 @@ import type {
 	SerailizedStore,
 } from '@next-mobx-store/type';
 import { observable, ObservableMap, ObservableSet, toJS } from 'mobx';
-
-function isNullable(value: unknown) {
-	if (value === undefined || value === null || Number.isNaN(value)) {
-		return true;
-	}
-	return false;
-}
+import { isNullable } from './common/utils';
 
 export function serializationStore<Store extends IHydrationStore>(store: Store): SerailizedStore<Store> {
 	function parser(o: Record<string, any>) {
