@@ -15,3 +15,10 @@ export type ExcludeType<T, E> = Pick<
 		[K in keyof T]: T[K] extends E ? never : K;
 	}[keyof T]
 >;
+
+export type IncludeType<T, I> = Pick<
+	T,
+	{
+		[K in keyof T]: T[K] extends I ? K : never;
+	}[keyof T]
+>;
