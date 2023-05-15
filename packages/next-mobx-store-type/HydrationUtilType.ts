@@ -3,9 +3,9 @@ import { IHydrationStore } from './IHydrationStore';
 
 export type SerailizedStore<Store extends IHydrationStore> = HydrationStore<Store>;
 
-export type DesrializedStore<Store extends IHydrationStore, HStore extends HydrationStore> = Partial<{
-	[K in keyof HStore]: K extends keyof Store ? Store[K] : HStore[K];
-}>;
+export type DesrializedStore<Store extends IHydrationStore, HStore extends HydrationStore> = {
+	[K in keyof HStore]?: K extends keyof Store ? Store[K] : HStore[K];
+};
 
 export type EntriesType<Store extends IHydrationStore> = [keyof Store, StoreValues<Store>];
 
