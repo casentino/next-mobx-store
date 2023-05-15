@@ -1,14 +1,12 @@
 import React from 'react';
-import { HydrationDataType, IRootStore } from '@next-mobx-store/type';
-import initializeRootStore from './initializeRootStore';
+import { IRootStore } from '@next-mobx-store/type';
 
 export const MobXStoreContext = React.createContext<IRootStore | undefined>(undefined);
 
 interface RootStoreProviderProps {
-	hydrateData?: HydrationDataType;
+	store?: IRootStore;
 }
 
-export default function RootStoreProvider({ children, hydrateData }: React.PropsWithChildren<RootStoreProviderProps>) {
-	const store = initializeRootStore(hydrateData);
+export default function RootStoreProvider({ children, store }: React.PropsWithChildren<RootStoreProviderProps>) {
 	return <MobXStoreContext.Provider value={store}>{children}</MobXStoreContext.Provider>;
 }
