@@ -1,4 +1,6 @@
-import type { IRootStore, HydrationDataType } from '@next-mobx-store/type';
+import type { IRootStore, HydrationDataType, IHydrationStore, HydrationStore } from '@next-mobx-store/type';
+import { hasHydrate } from './common/utils';
+import { deserializationStore } from './hydrationUtils';
 
 export let rootInstance: IRootStore;
 export function setRootInstance(instance: IRootStore) {
@@ -7,13 +9,7 @@ export function setRootInstance(instance: IRootStore) {
 	}
 }
 export default function createRootStore<Store extends object>(storeInstance: Store) {
-	function hasHydrate(store: object): store is Record<string, unknown> & { hydrate: Function } {
-		if ('hydrate' in store && store.hydrate instanceof Function) {
-			return true;
-		}
-		return false;
-	}
-	function isInHydarateSore<Target extends Record<string, unknown>>(
+	function isInHydarateStore<Target extends Record<string, unknown>>(
 		memberName: string | number | symbol,
 		rootMember: Target
 	): memberName is keyof Target {
@@ -25,8 +21,9 @@ export default function createRootStore<Store extends object>(storeInstance: Sto
 	function callHydrateFunction(store: Store, hydrateStores: HydrationDataType<Store>) {
 		const storeMembers = Object.entries(store);
 		storeMembers.forEach(([storeName, store]) => {
-			if (hasHydrate(store) && isInHydarateSore(storeName, hydrateStores) && hydrateStores[storeName]) {
-				store.hydrate(hydrateStores[storeName]);
+			if (hasHydrate(store) && isInHydarateStore(storeName, hydrateStores)) {
+				const hydrateData = hydrateStores[storeName as keyof HydrationDataType];
+				store.hydrate(deserializationStore(store, hydrateData));
 			}
 		});
 	}
