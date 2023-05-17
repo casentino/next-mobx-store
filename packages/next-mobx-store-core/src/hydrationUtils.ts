@@ -7,8 +7,9 @@ import type {
 } from '@next-mobx-store/type';
 import { observable, ObservableMap, ObservableSet, toJS } from 'mobx';
 import { isNullable } from './common/utils';
+import { CreateRootStoreConfig } from './createRootStore';
 
-export function serializationStore<Store extends IHydrationStore>(store: Store): SerailizedStore<Store> {
+function serializeStoreUtil<Store extends IHydrationStore>(store: Store): SerailizedStore<Store> {
 	function parser(o: Record<string, any>) {
 		return Object.entries(o).reduce((prev, curr) => {
 			const [key, value] = curr;
@@ -34,7 +35,7 @@ export function serializationStore<Store extends IHydrationStore>(store: Store):
 	return parser(toJS(store));
 }
 
-export function deserializationStore<Store extends IHydrationStore>(
+function deserializeStoreUtil<Store extends IHydrationStore>(
 	store: Store,
 	serailizedStore: HydrationStore<Store>
 ): DesrializedStore<Store, HydrationStore<Store>> {
@@ -69,3 +70,27 @@ export function deserializationStore<Store extends IHydrationStore>(
 		};
 	}, {});
 }
+
+const hydrationUtil = new (class {
+	private _serialize: typeof serializeStoreUtil = serializeStoreUtil;
+	private _deserialize: typeof deserializeStoreUtil = deserializeStoreUtil;
+	setSerialize(serialize: typeof serializeStoreUtil) {
+		this._serialize = serialize;
+	}
+	get serializationStore() {
+		return this._serialize;
+	}
+
+	setDeserialize(deserialize: typeof deserializeStoreUtil) {
+		this._deserialize = deserialize;
+	}
+	get deserializationStore() {
+		return this._deserialize;
+	}
+})();
+export function initializeHydrationUtil({ serialize, deserialize }: Partial<CreateRootStoreConfig>) {
+	hydrationUtil.setSerialize(serialize || serializeStore);
+	hydrationUtil.setDeserialize(deserialize || deserializeStore);
+}
+export const serializeStore = hydrationUtil.serializationStore;
+export const deserializeStore = hydrationUtil.deserializationStore;
