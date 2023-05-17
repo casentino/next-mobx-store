@@ -1,5 +1,5 @@
 import type { HydrationDataType } from '@next-mobx-store/type';
-import createRootStore, { rootInstance, setRootInstance } from './createStore';
+import createRootStore, { rootInstance, setRootInstance } from './createRootStore';
 import { getIsServer } from './common/utils';
 
 export default function initializeRootStore(hydrationData?: HydrationDataType) {

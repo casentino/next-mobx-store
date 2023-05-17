@@ -1,6 +1,13 @@
-import type { IRootStore, HydrationDataType, IHydrationStore, HydrationStore } from '@next-mobx-store/type';
+import type {
+	IRootStore,
+	HydrationDataType,
+	IHydrationStore,
+	HydrationStore,
+	SerailizedStore,
+	DesrializedStore,
+} from '@next-mobx-store/type';
 import { hasHydrate } from './common/utils';
-import { deserializationStore } from './hydrationUtils';
+import { deserializeStore, initializeHydrationUtil } from './hydrationUtils';
 
 export let rootInstance: IRootStore;
 export function setRootInstance(instance: IRootStore) {
@@ -8,7 +15,21 @@ export function setRootInstance(instance: IRootStore) {
 		rootInstance = instance;
 	}
 }
-export default function createRootStore<Store extends object>(storeInstance: Store) {
+export type CreateRootStoreConfig = {
+	serialize: <Store extends IHydrationStore>(store: Store) => SerailizedStore<Store>;
+	deserialize: <Store extends IHydrationStore>(
+		sotre: Store,
+		serailizedStore: HydrationStore<Store>
+	) => DesrializedStore<Store, HydrationStore<Store>>;
+};
+export default function createRootStore<Store extends object>(
+	storeInstance: Store,
+	config?: Partial<CreateRootStoreConfig>
+) {
+	if (config) {
+		const { serialize, deserialize } = config;
+		initializeHydrationUtil({ serialize, deserialize });
+	}
 	function isInHydarateStore<Target extends Record<string, unknown>>(
 		memberName: string | number | symbol,
 		rootMember: Target
@@ -23,7 +44,7 @@ export default function createRootStore<Store extends object>(storeInstance: Sto
 		storeMembers.forEach(([storeName, store]) => {
 			if (hasHydrate(store) && isInHydarateStore(storeName, hydrateStores)) {
 				const hydrateData = hydrateStores[storeName as keyof HydrationDataType];
-				store.hydrate(deserializationStore(store, hydrateData));
+				store.hydrate(deserializeStore(store, hydrateData));
 			}
 		});
 	}
