@@ -3,7 +3,7 @@ import { IHydrationStore } from './IHydrationStore';
 
 export type SerailizedStore<Store extends IHydrationStore> = HydrationStore<Store>;
 
-export type DesrializedStore<Store extends IHydrationStore, HStore extends HydrationStore> = {
+export type DesrializedStore<Store extends IHydrationStore, HStore = HydrationStore<Store>> = {
 	[K in keyof HStore]?: K extends keyof Store ? Store[K] : HStore[K];
 };
 
