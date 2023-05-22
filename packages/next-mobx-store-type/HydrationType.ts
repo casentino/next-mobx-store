@@ -2,10 +2,18 @@ import { ObservableMap, ObservableSet } from 'mobx';
 import { IHydrationStore } from './IHydrationStore';
 import { ExcludeType, TransformMap, TransformSet, ToNotOptional, IncludeType } from './Utils';
 
-export type HydrationDataType<Store extends object = object> = Partial<
-	IncludeType<ExcludeType<Store, CallableFunction>, IHydrationStore>
+export type HydrationDataType<Store extends object = object> = TranshFormHydrationStore<
+	Pick<
+		Store,
+		{
+			[K in keyof Store]: Store[K] extends CallableFunction ? never : Store[K] extends IHydrationStore ? K : never;
+		}[keyof Store]
+	>
 >;
 
+export type TranshFormHydrationStore<Store extends object> = {
+	[K in keyof Store]?: Store[K] extends IHydrationStore ? HydrationStore<Store[K]> : never;
+};
 export type HydrationStore<Store extends IHydrationStore = IHydrationStore> = {
 	[K in keyof ExcludeType<Store, CallableFunction>]?: ToNotOptional<
 		ExcludeType<Store, CallableFunction>[K],
