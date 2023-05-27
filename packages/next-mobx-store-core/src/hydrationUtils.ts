@@ -8,6 +8,7 @@ import type {
 import { observable, ObservableMap, ObservableSet, toJS } from 'mobx';
 import { isNullable } from './common/utils';
 import { CreateRootStoreConfig } from './createRootStore';
+import { ObservableArrayAdministration, ObservableValue } from 'mobx/dist/internal';
 
 function serializeStoreUtil<Store extends IHydrationStore>(store: Store): SerailizedStore<Store> {
 	function parser(o: Record<string, any>) {
@@ -34,7 +35,6 @@ function serializeStoreUtil<Store extends IHydrationStore>(store: Store): Serail
 	}
 	return parser(toJS(store));
 }
-
 function deserializeStoreUtil<Store extends IHydrationStore>(
 	store: Store,
 	serailizedStore: HydrationStore<Store>
@@ -42,33 +42,25 @@ function deserializeStoreUtil<Store extends IHydrationStore>(
 	if (typeof serailizedStore !== 'object') return {};
 	const entreis = Object.entries(serailizedStore) as Array<EntriesType<Store>>;
 
-	return entreis.reduce<DesrializedStore<Store, HydrationStore<Store>>>((prev, curr) => {
-		const [key, value] = curr;
+	const deserializeStore: Partial<Record<keyof Store, any>> = {};
+	entreis.forEach(([key, value]) => {
 		if (value instanceof Array) {
 			if (store[key] instanceof ObservableSet || store[key] instanceof Set) {
-				return {
-					...prev,
-					[key]: observable.set(value),
-				};
+				deserializeStore[key] = observable.set(value);
 			}
 			if (store[key] instanceof ObservableMap || store[key] instanceof Map) {
-				return {
-					...prev,
-					[key]: observable.map(value),
-				};
+				deserializeStore[key] = observable.map(value);
 			}
 			if (store[key] instanceof Array) {
-				return {
-					...prev,
-					[key]: observable.array(value),
-				};
+				deserializeStore[key] = observable.array(value);
 			}
+		} else if (typeof value === 'object' && value !== null) {
+			deserializeStore[key] = observable.object(value);
+		} else {
+			deserializeStore[key] = observable.box(value);
 		}
-		return {
-			...prev,
-			[key]: value,
-		};
-	}, {});
+	});
+	return deserializeStore as DesrializedStore<Store, HydrationStore<Store>>;
 }
 
 const hydrationUtil = new (class {
