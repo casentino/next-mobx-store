@@ -1,10 +1,14 @@
-import { observable } from 'mobx';
-import AllObservableTypeStore from './mocks/AllObservableTypeStore';
-import { serializeStore } from '../hydrationUtils';
+import { observable, isObservable, isBoxedObservable } from 'mobx';
+
+import AllObservableTypeStore, { storeKeys } from './mocks/AllObservableTypeStore';
+import { deserializeStore, serializeStore } from '../hydrationUtils';
+import { ObservableMap, ObservableSet } from 'mobx';
+import { DesrializedStore, HydrationStore } from '@next-mobx-store/type';
 
 describe('hydration util test', () => {
 	let aotStore: AllObservableTypeStore;
-	let allKeys: string[];
+
+	let serialize: Record<string, any>;
 	beforeEach(() => {
 		aotStore = new AllObservableTypeStore();
 		const mapState = new Map<string, any>();
@@ -37,12 +41,53 @@ describe('hydration util test', () => {
 			observableMapOptionalState: undefined,
 			observableSetOptionalState: undefined,
 		});
-		allKeys = Object.keys(aotStore);
+		serialize = serializeStore(aotStore);
 	});
 	it('serialize have to exclude function', () => {
-		const serialize: Record<string, any> = serializeStore(aotStore);
-		allKeys.forEach((key) => {
+		storeKeys.forEach((key) => {
 			expect(serialize[key]).not.toBeInstanceOf(Function);
+		});
+	});
+
+	it('serialize have to change collection', () => {
+		function isMap(value: unknown): value is Map<string, unknown> | ObservableMap {
+			if (value instanceof Map || value instanceof ObservableMap) {
+				return true;
+			}
+			return false;
+		}
+		function isSet(value: unknown): value is Set<string> | ObservableSet {
+			if (value instanceof Set<string> || value instanceof ObservableSet) {
+				return true;
+			}
+			return false;
+		}
+		storeKeys.forEach((key) => {
+			if (isMap(serialize[key])) {
+				expect(serialize[key]).toBeInstanceOf(Array);
+				expect(serialize[key][0]).toBeInstanceOf(Array);
+			}
+			if (isSet(serialize[key])) {
+				expect(serialize[key]).toBeInstanceOf(Array);
+				expect(typeof serialize[key][0] === 'string').toBeTruthy();
+			}
+		});
+	});
+
+	it('serialize store is not Observable value', () => {
+		storeKeys.forEach((key) => {
+			expect(isObservable(serialize[key])).toBeFalsy();
+		});
+	});
+	it('deserialize result have to observable values', () => {
+		const deserialize = deserializeStore(aotStore, serialize);
+		storeKeys.forEach((key) => {
+			const property =
+				deserialize[key as keyof DesrializedStore<AllObservableTypeStore, HydrationStore<AllObservableTypeStore>>];
+			if (property !== undefined) {
+				console.log(property);
+				expect(isObservable(property)).toBeTruthy();
+			}
 		});
 	});
 });
