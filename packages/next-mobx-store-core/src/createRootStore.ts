@@ -21,6 +21,7 @@ export type CreateRootStoreConfig = {
 		sotre: Store,
 		serailizedStore: HydrationStore<Store>
 	) => DesrializedStore<Store, HydrationStore<Store>>;
+	hydrate: (hydrateStores?: HydrationDataType<IRootStore>) => void;
 };
 export default function createRootStore<Store extends object>(
 	storeInstance: Store,
@@ -48,13 +49,14 @@ export default function createRootStore<Store extends object>(
 			}
 		});
 	}
-	const store = Object.assign<Store, IRootStore>(storeInstance, {
-		hydrate(hydrateStores?: HydrationDataType<Store>) {
-			if (!hydrateStores) return;
+	const hydrate = config?.hydrate
+		? config.hydrate
+		: (hydrateStores?: HydrationDataType<Store>) => {
+				if (!hydrateStores) return;
 
-			callHydrateFunction(storeInstance, hydrateStores);
-		},
-	});
+				callHydrateFunction(storeInstance, hydrateStores);
+		  };
+	const store = Object.assign<Store, IRootStore>(storeInstance, { hydrate });
 	setRootInstance(store);
 	return store;
 }
