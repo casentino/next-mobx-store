@@ -1,4 +1,4 @@
-import { IHydrationStore } from '@next-mobx-store/type';
+import { HydrationDataType, IHydrationStore } from '@next-mobx-store/type';
 
 export const getIsServer = () => typeof window === 'undefined';
 
@@ -14,4 +14,12 @@ export function hasHydrate(store: object): store is IHydrationStore {
 		return true;
 	}
 	return false;
+}
+
+export function isEmptyObject(data?: object): data is HydrationDataType {
+	if (!data) return false;
+	if (typeof data === 'object' && JSON.stringify(data) === '{}') {
+		return false;
+	}
+	return true;
 }
