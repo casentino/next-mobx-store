@@ -1,18 +1,16 @@
 import type { HydrationDataType } from '@next-mobx-store/type';
-import createRootStore, { rootInstance, setRootInstance } from './createRootStore';
-import { getIsServer } from './common/utils';
+import { rootInstance } from './createRootStore';
+import { isEmptyObject } from './common/utils';
 
 export default function initializeRootStore(hydrationData?: HydrationDataType) {
-	const store = rootInstance ?? createRootStore({});
+	if (!rootInstance) {
+		throw Error(`RootStore is ${rootInstance}. Must use \`createRootStore()\` to make the \`RootStore\` hydratable.`);
+	}
+	const store = rootInstance;
 
-	if (hydrationData) {
+	if (isEmptyObject(hydrationData)) {
 		store.hydrate(hydrationData);
 	}
-	if (getIsServer()) {
-		return store;
-	}
-	if (!rootInstance) {
-		setRootInstance(store);
-	}
+
 	return store;
 }
