@@ -1,11 +1,4 @@
-import type {
-	IRootStore,
-	HydrationDataType,
-	IHydrationStore,
-	HydrationStore,
-	SerailizedStore,
-	DesrializedStore,
-} from '@next-mobx-store/type';
+import type { IRootStore, HydrationDataType, CreateRootStoreConfig } from '@next-mobx-store/type';
 import { hasHydrate } from './common/utils';
 import { deserializeStore, initializeHydrationUtil } from './hydrationUtils';
 
@@ -15,14 +8,7 @@ export function setRootInstance(instance: IRootStore) {
 		rootInstance = instance;
 	}
 }
-export type CreateRootStoreConfig = {
-	serialize: <Store extends IHydrationStore>(store: Store) => SerailizedStore<Store>;
-	deserialize: <Store extends IHydrationStore>(
-		sotre: Store,
-		serailizedStore: HydrationStore<Store>
-	) => DesrializedStore<Store, HydrationStore<Store>>;
-	hydrate: (hydrateStores?: HydrationDataType<IRootStore>) => void;
-};
+
 export default function createRootStore<Store extends object>(
 	storeInstance: Store,
 	config?: Partial<CreateRootStoreConfig>

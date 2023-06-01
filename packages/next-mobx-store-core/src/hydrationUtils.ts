@@ -4,11 +4,10 @@ import type {
 	DesrializedStore,
 	EntriesType,
 	SerailizedStore,
+	CreateRootStoreConfig,
 } from '@next-mobx-store/type';
 import { observable, ObservableMap, ObservableSet, toJS } from 'mobx';
 import { isNullable } from './common/utils';
-import { CreateRootStoreConfig } from './createRootStore';
-import { ObservableArrayAdministration, ObservableValue } from 'mobx/dist/internal';
 
 function serializeStoreUtil<Store extends IHydrationStore>(store: Store): SerailizedStore<Store> {
 	function parser(o: Record<string, any>) {

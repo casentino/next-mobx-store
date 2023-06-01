@@ -1,14 +1,20 @@
 {
-	"name": "@next-mobx-store/core",
-	"version": "0.0.0",
-	"types": "./index.ts",
-	"main": "./index.ts",
-	"license": "MIT",
-	"scripts": {
-		"build": "yarn rimraf dist && src/index.ts --format cjs --dts",
-		"test": "jest --watch"
-	},
-	"dependencies": {
-		"@next-mobx-store/type": "*"
-	}
+  "name": "@next-mobx-store/core",
+  "version": "0.0.0",
+  "types": "./dist/index.d.ts",
+  "main": "./src/index.ts",
+  "module": "./dist/index.cjs",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup",
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "@next-mobx-store/type": "*",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
 }

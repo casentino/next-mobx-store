@@ -1,5 +1,5 @@
+import type { IRootStore } from '@next-mobx-store/type';
 import React from 'react';
-import { IRootStore } from '@next-mobx-store/type';
 
 export const MobXStoreContext = React.createContext<IRootStore | undefined>(undefined);
 
