@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobXStoreContext } from '@next-mobx-store/core';
+import { MobXStoreContext } from '@next-mobx-store/core/src/RootStoreProvider';
 
 export default function useRootStore() {
 	const context = React.useContext(MobXStoreContext);
