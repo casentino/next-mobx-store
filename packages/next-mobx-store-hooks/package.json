@@ -1,9 +1,17 @@
 {
 	"name": "@next-mobx-store/hooks",
-	"main": "./index.ts",
-	"types": "./index.ts",
+	"types": "./dist/index.d.ts",
+	"main": "./src/index.ts",
+	"module": "./dist/index.cjs",
+	"scripts": {
+		"build": "tsup"
+	},
 	"dependencies": {
 		"@next-mobx-store/core": "*",
 		"@next-mobx-store/type": "*"
+	},
+	"peerDependencies": {
+		"react": ">=16.8.0",
+		"react-dom": ">=16.8.0"
 	}
 }

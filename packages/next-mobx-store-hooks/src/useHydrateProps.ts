@@ -1,4 +1,4 @@
-import { initializeRootStore } from '@next-mobx-store/core';
+import initializeRootStore from '@next-mobx-store/core/src/initializeRootStore';
 import { HydrationDataType, IRootStore } from '@next-mobx-store/type';
 import { AppProps } from 'next/app';
 type UseHydratePropsReturn<Props> = {

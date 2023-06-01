@@ -3,3 +3,4 @@ export * from './IHydrationStore';
 export * from './HydrationUtilType';
 export * from './IRootStore';
 export * from './HydrateHooks';
+export * from './CreateRootStoreType';
