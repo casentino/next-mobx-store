@@ -1,7 +1,11 @@
 {
   "name": "@next-mobx-store/type",
   "version": "0.0.0",
-  "types": "./index.ts",
-  "main": "./index.ts",
-  "license": "MIT"
+  "types": "./dist/index.d.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup"
+  }
 }
