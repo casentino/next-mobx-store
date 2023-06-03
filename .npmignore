@@ -1,18 +1,50 @@
+
+# folders
 node_modules/
 apps/
 docs/
-src/
-.gitignore
-.turbo
-src/**/*.test.ts
-src/**/*.test.js
-.*.swp
-._*
-.DS_Store
+.yarn/
+**/src/
+
+# git
 .git
-.hg
+.gitignore
+.gitattributes
+
+# turbo
+.turbo*
+**/.turbo
+
+# tsup
+**/tsup.config.ts
+
+# jest
+**/jest.*
+
+# ts
+**/tsconfig.json
+
+# babel
+**/babel.config.js
+
+# npm
 .npmrc
+npm-debug.log
+.npmignore
+package-lock-json
+
+# yarn
+.yarn*
+yarn.lock
+
+# config
+.editorconfig
+
+# another
+.hg
 .lock-wscript
 .svn
 .wafpickle-*
-npm-debug.log
+.*.swp
+._*
+.DS_Store
