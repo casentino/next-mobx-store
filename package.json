@@ -1,6 +1,6 @@
 {
-  "name": "@casentino/next-mobx-store",
-  "private": true,
+  "name": "next-mobx-store",
+  "version": "0.0.1",
   "packageManager": "yarn@3.5.1",
   "scripts": {
     "build": "turbo run build",
@@ -29,6 +29,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@changesets/cli": "^2.26.1",
     "immutable": "^4.3.0",
     "json-immutable": "^0.5.0",
     "mobx": "^6.9.0",
@@ -39,8 +40,6 @@
     "tsup": "^6.7.0"
   },
   "description": "",
-  "version": "0.0.1",
-  "main": "babel.config.js",
   "directories": {
     "doc": "docs"
   },

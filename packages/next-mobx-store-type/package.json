@@ -1,11 +1,22 @@
 {
   "name": "@next-mobx-store/type",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "types": "./dist/index.d.ts",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "license": "MIT",
   "scripts": {
     "build": "tsup"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casentino/next-mobx-store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/casentino/next-mobx-store/issues"
+  },
+  "homepage": "https://github.com/casentino/next-mobx-store#readme"
 }

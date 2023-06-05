@@ -14,6 +14,7 @@ docs/
 # turbo
 .turbo*
 **/.turbo
+turbo.json
 
 # tsup
 **/tsup.config.ts
@@ -26,6 +27,7 @@ docs/
 
 # babel
 **/babel.config.js
+./babel.config.js
 
 # npm
 .npmrc
