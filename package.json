@@ -1,5 +1,6 @@
 {
-  "name": "@next-mobx-store",
+  "name": "next-mobx-store",
+  "version": "0.0.1",
   "packageManager": "yarn@3.5.1",
   "scripts": {
     "build": "turbo run build",
@@ -39,8 +40,6 @@
     "tsup": "^6.7.0"
   },
   "description": "",
-  "version": "0.0.1",
-  "main": "babel.config.js",
   "directories": {
     "doc": "docs"
   },
