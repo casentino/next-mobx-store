@@ -1,5 +1,18 @@
 # @next-mobx-store/core
 
+## 0.1.0
+
+### Minor Changes
+
+- 39a3b3c: e
+
+### Patch Changes
+
+- release
+- Updated dependencies
+- Updated dependencies [39a3b3c]
+  - @next-mobx-store/type@0.1.0
+
 ## 0.0.4
 
 ### Patch Changes
