@@ -1,6 +1,6 @@
 {
   "name": "@next-mobx-store/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "types": "./dist/index.d.ts",
   "main": "./src/index.ts",
   "module": "./dist/index.cjs",

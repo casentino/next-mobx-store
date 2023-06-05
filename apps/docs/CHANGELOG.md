@@ -1,5 +1,14 @@
 # docs
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @next-mobx-store/core@0.0.2
+  - @next-mobx-store/hooks@0.0.2
+  - @next-mobx-store/type@0.0.2
+
 ## 0.1.5
 
 ### Patch Changes
