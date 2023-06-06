@@ -2,7 +2,13 @@
   "name": "@next-mobx-store/hooks",
   "version": "0.0.2",
   "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
   "main": "./dist/index.js",
+  "sideEffects": false,
+  "license": "MIT",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "tsup"
   },

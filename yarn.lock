@@ -2356,7 +2356,6 @@ __metadata:
   resolution: "@next-mobx-store/core@workspace:packages/next-mobx-store-core"
   dependencies:
     "@next-mobx-store/type": "*"
-    typescript: ^5.0.4
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
