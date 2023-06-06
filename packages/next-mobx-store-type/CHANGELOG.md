@@ -1,14 +1,13 @@
 # @next-mobx-store/type
 
-## 0.0.4
+## 0.0.2
 
 ### Patch Changes
 
-- tets
+- d
 
-## 0.0.3
+## 0.0.1
 
 ### Patch Changes
 
-- t
-- test
+- patch first release

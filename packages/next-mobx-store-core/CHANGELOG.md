@@ -1,19 +1,17 @@
 # @next-mobx-store/core
 
-## 0.0.4
+## 0.0.2
 
 ### Patch Changes
 
-- tets
+- d
 - Updated dependencies
-  - @next-mobx-store/type@0.0.4
+  - @next-mobx-store/type@0.0.2
 
-## 0.0.3
+## 0.0.1
 
 ### Patch Changes
 
-- t
-- test
+- patch first release
 - Updated dependencies
-- Updated dependencies
-  - @next-mobx-store/type@0.0.3
+  - @next-mobx-store/type@0.0.1
