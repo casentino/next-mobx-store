@@ -1,12 +1,16 @@
 {
   "name": "next-mobx-store",
   "version": "0.0.1",
+  "private": true,
   "packageManager": "yarn@3.5.1",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo build --filter=docs^... && changeset publish"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",

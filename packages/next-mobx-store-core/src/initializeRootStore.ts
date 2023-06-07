@@ -1,4 +1,4 @@
-import type { HydrationDataType } from "@next-mobx-store/type";
+import { HydrationDataType } from "@next-mobx-store/type";
 import { rootInstance } from "./createRootStore";
 import { isEmptyObject } from "./common/utils";
 

@@ -1,17 +1,20 @@
 {
   "name": "@next-mobx-store/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "types": "./dist/index.d.ts",
-  "main": "./src/index.ts",
-  "module": "./dist/index.cjs",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "jest --watch"
   },
   "dependencies": {
-    "@next-mobx-store/type": "*",
-    "typescript": "^5.0.4"
+    "@next-mobx-store/type": "*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
