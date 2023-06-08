@@ -1,9 +1,9 @@
 {
   "name": "@next-mobx-store/core",
-  "version": "0.0.3",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "version": "0.0.4",
+  "types": "./src/index.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
   "license": "MIT",
   "sideEffects": false,
   "files": [
@@ -19,6 +19,10 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "resolutions": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
   },
   "publishConfig": {
     "access": "public"
