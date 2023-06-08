@@ -1,9 +1,9 @@
 {
   "name": "@next-mobx-store/core",
   "version": "0.0.4",
-  "types": "./src/index.ts",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "license": "MIT",
   "sideEffects": false,
   "files": [

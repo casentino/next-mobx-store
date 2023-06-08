@@ -1,8 +1,5 @@
 import { IRootStore } from "@next-mobx-store/type";
-import { NextComponentType } from "next";
-import { AppProps } from "next/app";
-import React, { ReactComponentElement, ReactElement } from "react";
-import { Renderer } from "react-dom";
+import React from "react";
 
 export const MobXStoreContext = React.createContext<IRootStore | undefined>(
   undefined
