@@ -1,5 +1,15 @@
 # @next-mobx-store/core
 
+## 0.0.5
+
+### Patch Changes
+
+- test
+- add README
+- Updated dependencies
+- Updated dependencies
+  - @next-mobx-store/type@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes
