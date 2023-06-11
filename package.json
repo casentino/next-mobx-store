@@ -10,7 +10,7 @@
     "test": "turbo run test",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo deploy && changeset publish && changeset tag && git push --tags"
+    "release": "yarn build && changeset publish && changeset tag && git push --tags"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",
