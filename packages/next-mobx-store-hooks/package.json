@@ -13,8 +13,8 @@
     "build": "tsup"
   },
   "dependencies": {
-    "@next-mobx-store/core": "*",
-    "@next-mobx-store/type": "*"
+    "@next-mobx-store/core": "workspace:*",
+    "@next-mobx-store/type": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

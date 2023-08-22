@@ -14,7 +14,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
-    "@next-mobx-store/type": "*"
+    "@next-mobx-store/type": "workspace:^"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
