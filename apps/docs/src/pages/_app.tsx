@@ -1,13 +1,10 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import { RootStoreProvider } from "@next-mobx-store/core";
-import { useHydrateProps } from "@next-mobx-store/hooks";
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
 
-export default function App({ Component, pageProps }: AppProps) {
-  const { store, ...props } = useHydrateProps(pageProps);
+function App({ Component, pageProps }: AppProps) {
   return (
-    <RootStoreProvider store={store}>
-      <Component {...props} />
-    </RootStoreProvider>
-  );
+    <Component {...pageProps} />
+  )
 }
+
+export default App;
