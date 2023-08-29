@@ -1,8 +1,8 @@
-import { IRootStore } from "@next-mobx-store/type";
-import React from "react";
+import type { IRootStore } from '@next-mobx-store/type';
+import React from 'react';
 
 export const MobXStoreContext = React.createContext<IRootStore | undefined>(
-  undefined
+  undefined,
 );
 
 interface RootStoreProviderProps {
