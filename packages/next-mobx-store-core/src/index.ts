@@ -1,7 +1,10 @@
-import createRootStore from './createRootStore';
 
+export { default as RootStoreProvider } from './RootStoreProvider';
+export { default as initializeRootStore } from './initializeRootStore';
+export { default as createRootStore } from './createRootStore';
 import { serializeStore, deserializeStore } from './hydrationUtils';
 
-import RootStoreProvider from './RootStoreProvider';
 
-export { RootStoreProvider, createRootStore, serializeStore, deserializeStore };
+export {
+  serializeStore, deserializeStore,
+};

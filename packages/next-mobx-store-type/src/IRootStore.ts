@@ -1,4 +1,5 @@
-import { HydrationDataType } from './HydrationType';
+import type { HydrationDataType } from './HydrationType';
+
 export interface IRootStore {
-	hydrate(hydrateStores?: HydrationDataType): void;
+  hydrate(hydrateStores?: HydrationDataType): void;
 }

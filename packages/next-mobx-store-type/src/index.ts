@@ -1,6 +1,6 @@
-export * from './HydrationType';
-export * from './IHydrationStore';
-export * from './HydrationUtilType';
-export * from './IRootStore';
-export * from './HydrateHooks';
-export * from './CreateRootStoreType';
+export type * from './HydrationType';
+export type * from './IHydrationStore';
+export type * from './HydrationUtilType';
+export type * from './IRootStore';
+export type * from './HydrateHooks';
+export type * from './CreateRootStoreType';

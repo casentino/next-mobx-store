@@ -5,22 +5,22 @@ import TodoStore from './mocks/TodoStore';
 const hydrateMock = jest.spyOn(TodoStore.prototype, 'hydrate');
 
 describe('Create Root Store TEST', () => {
-	let store: RootStore;
-	beforeEach(() => {
-		store = new RootStore();
-	});
-	it('createRootStore', () => {
-		const rootStore = createRootStore(store);
+  let store: RootStore;
+  beforeEach(() => {
+    store = new RootStore();
+  });
+  it('createRootStore', () => {
+    const rootStore = createRootStore(store);
 
-		expect(rootStore).toHaveProperty('hydrate');
-	});
-	it('call hydrate test', () => {
-		const rootStore = createRootStore(store);
-		const todoHydrationData = {
-			todoList: [],
-		};
+    expect(rootStore).toHaveProperty('hydrate');
+  });
+  it('call hydrate test', () => {
+    const rootStore = createRootStore(store);
+    const todoHydrationData = {
+      todoList: [],
+    };
 
-		rootStore.hydrate({ todoStore: todoHydrationData });
-		expect(hydrateMock).toBeCalledTimes(1);
-	});
+    rootStore.hydrate({ todoStore: todoHydrationData });
+    expect(hydrateMock).toBeCalledTimes(1);
+  });
 });

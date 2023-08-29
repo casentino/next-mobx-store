@@ -1,11 +1,5 @@
-import { HydrationStore } from './HydrationType';
-import { IHydrationStore } from './IHydrationStore';
+import type { IHydrationStore } from './IHydrationStore';
 
-export interface LocalPageProps {
-	localPageStores?: {
-		[storename: string]: HydrationStore;
-	};
-}
-export type LocalHydrateStores = {
-	[storename: string]: IHydrationStore;
+export type HydrationLocalStoreType = {
+  [storename: string]: IHydrationStore
 };

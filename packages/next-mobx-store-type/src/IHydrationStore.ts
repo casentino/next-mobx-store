@@ -1,5 +1,5 @@
-import { DesrializedStore } from './HydrationUtilType';
+import type { DesrializedStore } from './HydrationUtilType';
 
 export interface IHydrationStore {
-	hydrate(hydrateData?: DesrializedStore<IHydrationStore>): void;
+  hydrate(hydrateData?: DesrializedStore<IHydrationStore>): void;
 }
