@@ -2,6 +2,10 @@
   "extends": "@next-mobx-store/tsconfig/react-library.json",  
   "include": [
     "src/**/*.ts"
-  ],  
+  ],
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "nodenext"
+  },
   "exclude": ["dist", "node_modules", "./tsup.config.ts"],
 }

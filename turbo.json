@@ -15,12 +15,7 @@
       "cache": false
     },
     "lint": {},
-    "test": {
-      "dependsOn": [
-        "^lint",
-        "^build"
-      ]
-    },
+    "test": {},
     "dev": {
       "cache": false,
       "persistent": true
