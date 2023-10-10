@@ -5,6 +5,6 @@ module.exports = {
     "turbo",
     "prettier"
   ],  
-  plugins: ["prettier"],
+  plugins: ["prettier"],  
 }
 
