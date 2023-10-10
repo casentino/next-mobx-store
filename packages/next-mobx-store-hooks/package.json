@@ -46,8 +46,11 @@
   },
   "export": {
     ".": {
-      "default": "./dist/index.js",
-      "require": "./dist/index.mjs"
+      "import": {
+        "default": "./dist/index.mjs",
+        "types": "./dist/index.d.mts"
+      },
+      "require": "./dist/index.js"
     }
   }
 }
