@@ -1,25 +1,25 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
-
+/** @type {import("ts-jest").JestConfigWithTsJest} */
 const { defaults: tsjPreset } = require('ts-jest/presets');
-
 module.exports = {
 	preset: 'ts-jest/presets/default-esm',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
   rootDir: './',    
   collectCoverage: true,
-  coverrageDirectory: '<rootDir>/coverage',
+  coverageDirectory: '<rootDir>/coverage',
   testPathIgnorePatterns: ['<rootDir>/node_modules', '<rootDir>/.yarn'],
-  moduleFileExtensions: ['ts', 'tsx'],
+  moduleFileExtensions: ['js','ts', 'tsx'],
   coverageReporters: ['json', 'html'],
-  projects: [{
-    testEnvironment: 'jsdom',
-    testMatch: [
-      '<rootDir>/packages/**/__test__/*.test.ts',
-      '<rootDir>/packages/**/__test__/*.test.tsx'
-    ],
-    testPathIgnorePatterns: ['<rootDir>/packages/**/dist']
-  }],
 	transform: {
-		...tsjPreset.transform
-	},
+    ...tsjPreset.transform,
+    // '^.+\\.jsx?$': "../../wrapper.js",
+     "^.+\\.[t|j]sx?$": "babel-jest"
+ }, 
+  projects: [
+    {
+      testMatch: [
+        './**/*.test.ts'
+      ],
+      testPathIgnorePatterns: ['./dist', '.turbo']
+    }
+  ]
 };
