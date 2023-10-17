@@ -16,7 +16,7 @@ export function hasHydrate(store: object): store is IHydrationStore {
   return false;
 }
 
-export function isEmptyObject(data?: object): data is HydrationDataType {
+export function isHydrationDataType(data?: object): data is HydrationDataType {
   if (!data) return false;
   if (typeof data === 'object' && JSON.stringify(data) === '{}') {
     return false;

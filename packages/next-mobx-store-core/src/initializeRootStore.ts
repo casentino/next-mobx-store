@@ -1,6 +1,6 @@
 import type { HydrationDataType } from '@next-mobx-store/type';
 import { rootInstance } from './createRootStore';
-import { isEmptyObject } from './common/utils';
+import { isHydrationDataType } from './common/utils';
 
 export default function initializeRootStore(hydrationData?: HydrationDataType) {
   if (!rootInstance) {
@@ -10,7 +10,7 @@ export default function initializeRootStore(hydrationData?: HydrationDataType) {
   }
   const store = rootInstance;
 
-  if (isEmptyObject(hydrationData)) {
+  if (isHydrationDataType(hydrationData)) {
     store.hydrate(hydrationData);
   }
 
