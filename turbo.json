@@ -6,6 +6,8 @@
   "pipeline": {
     "build": {
       "dependsOn": [
+        "^lint",
+        "test",
         "^build"
       ],
       "outputs": [
@@ -15,15 +17,18 @@
       "cache": false
     },
     "lint": {},
-    "test": {},
+    "test": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
     "dev": {
       "cache": false,
       "persistent": true
     },
     "deploy": {
       "dependsOn": [
-        "build",
-        "test"
+        "build"
       ]
     }
   }
