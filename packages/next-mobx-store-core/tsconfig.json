@@ -7,5 +7,5 @@
     "module": "NodeNext",
     "moduleResolution": "nodenext"
   },
-  "exclude": ["dist", "node_modules", "./tsup.config.ts"],
+  "exclude": ["dist", "node_modules"],
 }
