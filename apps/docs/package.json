@@ -9,13 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next-mobx-store/core": "workspace:*",
-    "@next-mobx-store/hooks": "workspace:*",
-    "@next-mobx-store/type": "workspace:*",
     "@types/node": "20.5.3",
     "autoprefixer": "10.4.15",
     "eslint": "8.47.0",
-    "next": "13.4.19",
+    "next": "latest",
+    "nextra": "^2.13.2",
+    "nextra-theme-docs": "^2.13.2",
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
