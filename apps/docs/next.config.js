@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 const withNextra = require('nextra')({
   theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.jsx',
-})
-module.exports = withNextra(nextConfig)
+  themeConfig: './theme.config.tsx'
+});
+const nextConfig = {  
+  reactStrictMode: true,   
+  transpilePackages: ["@next-mobx-store/*"]
+}
+module.exports = withNextra();

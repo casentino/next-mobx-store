@@ -1,7 +1,11 @@
 {
-  "extends": "../../tsconfig.json",  
+  "extends": "@next-mobx-store/tsconfig/react-library.json",  
   "include": [
     "src/**/*.ts"
-  ],  
-  "exclude": ["dist", "node_modules", "./tsup.config.ts"],
+  ],
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "nodenext"
+  },
+  "exclude": ["dist", "node_modules"],
 }

@@ -1,0 +1,79 @@
+# API Reference
+
+## cretaeRootStore
+RootStore에 속한 Store들이 정의된 인터페이스에 따라 hydrate되도록 해줍니다.
+Store들에 정의된 hydrate 메소드를 RootStore가 hydrate 될때 호출 되도록 합니다.
+
+```typescript
+createRootStore(storeInstance, config?);
+```
+
+<font size="3">**Parameters**</font><br/>
+- *storeInstance*: MobX에서 주로 사용되는 전역상태관리를 위한 RootStore 인스턴스를 매개변수로 받습니다.
+- *config*: 모듈에서 정의된 serialize, deserialize, hydrate 대신 임의의 함수를 정의하여 사용할수 있습니다.
+  - `serialize`: hydrate될때 스토어를 직렬화 하기위한 함수입니다.
+  - `deserialize`: 스토어에 직렬화된 상태값을 다시 observable 값으로 변경해주기 위한 함수 입니다.
+  - `hydrate`: RootStore에 속한 각 Store들의 hydrate 함수를 호출 해주는 함수입니다.
+
+
+
+## useHydrateProps
+
+App에서 pageProps의 hydrationData를 넘겨받아 RootStoreProvider에 넘겨줄 store를 리턴합니다.
+`pageProps`의 `hydrationData`를 사용하여 RootStore에 hydrate함수를 호출해줍니다.
+
+```typescript
+const { store, ...other } = useHydrateProps(rest);
+```
+
+<font size="3">**Parameters**</font><br />
+- *...rest*: _app.tsx에서 AppProps의 Component를 제외한 나머지를 매개변수로 받습니다.
+
+<font size="3">**Return**</font><br />
+hydration된 store 인스턴스와 Component 에 넘겨줄 props를 반환합니다.
+
+## useLocalHydrate
+
+전역 상태를 관리하는 스토어가아닌 단일페이지나 특정 도메인에서만 사용될 스토어를 hydration 해주는 훅입니다.
+`pageProps`의 `hydrationLocalStore`를 넘겨 받아 Store들의 hydrate함수를 호출해줍니다.
+```typescript
+const store = useLocalHydrateStores(props);
+```
+
+<font size="3">**Parameters**</font><br />
+- *props*: Next 페이지 컴포넌의 props를 매개변수로 받습니다. 
+
+<font size="3">**Return**</font><br />
+해당 페이지에서만 사용될 MobX Store를 반환합니다.
+
+## useRootStore
+
+스토어를 컴포넌트에서 사용할때 context로 생성한 RootStore를 사용하는 훅입니다.
+
+<font size="3">**Return**</font><br />
+RootStoreProvider로 context에 등록된 RootStore를 반환합니다.
+```tsx {2}
+function Component(props: Props) {
+    const store = useRootStore();
+    return (
+      // ...
+    )
+}
+```
+
+
+## RootStoreProvider
+
+`useRootStore`로 RootStore를 사용하기 위해서 
+`useHydrateProps`에서 린턴된 store를 RootStoreProvider에 넙겨줍니다.
+
+```tsx {2}
+function App({ Component, pageProps }: AppProps) {
+  const { store, ...props } = useHydrateProps(pageProps);
+  return (
+    <RootStoreProvider store={store}>
+      <Component {...props} />
+    </RootStoreProvider>
+  );
+}
+```

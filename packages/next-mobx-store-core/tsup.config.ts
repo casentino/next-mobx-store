@@ -1,12 +1,13 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ["src/*.(ts|tsx)", "src/common/*.ts"],
-  clean: ["./dist", ".turbo"],
+  entry: ['src/index.ts', 'src/common/*.ts'],
+  clean: ['./dist', '.turbo'],
+  treeshake: true,
   minify: true,
   dts: true,
   splitting: false,
-  sourcemap: false,
-  outDir: "./dist",
-  format: ["esm"],
+  outDir: './dist',
+  tsconfig: './tsconfig.json',
+  format: ['cjs', 'esm'],
 });
