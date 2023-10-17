@@ -1,0 +1,14 @@
+{
+  "index": {
+    "title": "Introduction",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "apirefer": {
+    "title": "API Reference",
+    "theme": {
+      "breadcrumb": false
+    }
+  }
+}

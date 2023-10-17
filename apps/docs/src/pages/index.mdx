@@ -1,0 +1,114 @@
+import { Tabs } from 'nextra/components';
+
+# Introduction
+ 
+Next.js 에서 mobx 스토어를 사용할때 hydration에 필요한 기능들을 적용시키는 기능을 구현했습니다. 개발자는 mobx 스토어의 RootStore 를 선언하고 해당 모듈에서 제공하는 RootStoreProvider에 서버사이드에서 넘겨받은 hydration 데이터를 프롭스로 전달해주면 서버사이드와 클라이언트 사이드에서 RootStore를 접근, 사용 가능하도록 구현했습니다. 
+
+## Installation
+
+<Tabs items={['npm', 'yarn']}>
+  <Tabs.Tab>
+    ```text copy
+    npm i @next-mobx-store/core @next-mobx-store/hooks
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```text copy
+    yarn add @next-mobx-store/core @next-mobx-store/hooks
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+
+## Getting Started
+
+**RootStore 설정**
+
+Mobx 스토어를 전역상태로 사용하기위해 RootStore 를 선언하기 위해서 `createRootStore` 를 사용합니다.
+
+`createRootStore`는 RootStore 인스턴스를 매개변수로 받아 hydratation 해줄 메소드를 구성하고 호출되도록합니다. 또한, hydration 과정에서 사용될 `serialize`, `deserialize` 함수를 매개변수로 넘겨주어 원하는 serialize, deserialize 함수를 사용할 수 있도록합니다. 
+
+```tsx
+// 기본 사용
+createRootStore(new RootStore());
+
+// serialize, deserialize 외부 모듈 사용
+createRootStore(new RootStore(), {
+  serialize: anotherSerialize,
+  deserialize: anotherDeSerialize
+});
+```
+
+**_app.tsx**
+
+서버사이드에서 hydration된 스토어들을 RootStoreProvider 에 프롭스로 전달해줍니다.  MyApp의 pageProps에서 hydrationData와 컴포넌트의 props 를 구분하기 위해 `useHydrateProps` 훅을 사용합니다.
+
+```tsx
+import type { AppProps } from "next/app";
+import { RootStoreProvider } from "@next-mobx-store/core";
+import { useHydrateProps } from "@next-mobx-store/hooks";
+import RootStore from '../store/RootStore';
+
+createRootStore(new RootStore());
+
+export default function App({ Component, ...rest }: AppProps) {
+  const { store, ...props } = useHydrateProps(rest);
+  return (
+    <RootStoreProvider store={store}>
+      <Component {...props} />
+    </RootStoreProvider>
+  );
+}
+```
+
+여러 페이지의 하위 컴포넌트내부에서 RootStore 에 접근해야하는 경우 `useRootStore` 훅을 사용해주세요.
+
+```tsx
+import { useRootStore } from "@next-mobx-store/hooks";
+
+export default function SomeComponent() {
+  const { todoStore } = useRootStore();
+  // ...
+}
+```
+
+
+**Hydration Store**
+
+서버사이드에서 serialize 된 데이터가 hydration 되려면  `IHydrationStore` 인터페이스를 구현하고 있는 스토어가 getServerSideProps, getStaticProps의 리턴값에 있어야합니다.
+
+```tsx
+// IHydrationStore
+class TodoStore implements IHydrationStore {
+  // ... 생략
+
+  hydrate(hydrateData?: DeserializeStore<TodoStore>) {
+    // ...
+  }
+}
+```
+
+
+`IHydrationStore`를 implements 하는 스토어를 서버사이드에서 상태값을 업데이트 해준후 `serializeStore` 를 사용하여 hydration 가능한 형태로 반환해줍니다.
+
+```tsx
+ fimport { serializeStore } from "@next-mobx-store/core";
+import { useRootStore } from "@next-mobx-store/hooks";
+
+export default function Page() {
+  // ...
+}
+
+export function getServerSideProps(ctx: GetServerSidePropsContext) {
+  // ...
+  const todoStore = new TodoStore();
+  todoStore.init();
+  return {
+    props: {
+      hydrationData: {
+        todoStore: serializeStore(todoStore)
+      }
+    }
+  }
+}
+```
