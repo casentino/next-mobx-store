@@ -1,5 +1,16 @@
 # @next-mobx-store/core
 
+## 0.1.0
+
+### Minor Changes
+
+- isEmptyObject => isHydrationDataType 명칭 변경
+- esm, cjs 배포되도록 수정
+
+### Patch Changes
+
+- Updated dependencies
+  - @next-mobx-store/type@0.1.0
 
 ## 0.0.5
 
