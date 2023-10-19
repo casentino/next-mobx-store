@@ -1,7 +1,14 @@
 # next-mobx-store
+
 Next.js 에서 mobx 스토어를 사용할때 hydration에 필요한 기능들을 적용시키는 기능을 구현했습니다. 개발자는 mobx 스토어의 RootStore 를 선언하고 해당 모듈에서 제공하는 RootStoreProvider에 서버사이드에서 넘겨받은 hydration 데이터를 프롭스로 전달해주면 서버사이드와 클라이언트 사이드에서 RootStore를 접근, 사용 가능하도록 구현했습니다. 
 
-**Installation**
+## Documentation
+
+https://next-mobx-store-docs.vercel.app/
+
+<hr style="height:1px"/>
+
+### Installation
 
 ```shell
 npm i @next-mobx-store/core @next-mobx-store/hooks
@@ -13,7 +20,7 @@ yarn add @next-mobx-store/core @next-mobx-store/hooks
 <hr style="height:1px"/>
  
 
-**RootStore 설정**
+### RootStore 설정
 
 Mobx 스토어를 전역상태로 사용하기위해 RootStore 를 선언하기 위해서 `createRootStore` 를 사용합니다.
 
@@ -32,7 +39,7 @@ createRootStore(new RootStore(), {
 
 <hr style="height:1px"/>
 
-**_app.tsx**
+### _app.tsx
 
 서버사이드에서 hydration된 스토어들을 RootStoreProvider 에 프롭스로 전달해줍니다.  MyApp의 pageProps에서 hydrationData와 컴포넌트의 props 를 구분하기 위해 `useHydrateProps` 훅을 사용합니다.
 
@@ -54,7 +61,7 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 ```
 
-여러 페이지의 하위 컴포넌트내부에서 RootStore 에 접근해야하는 경우 `useRootStore` 훅을 사용해주세요.
+여러 페이지의 하위 컴포넌트내부에서 RootStore에 접근해야하는 경우 `useRootStore` 훅을 사용해주세요.
 
 ```tsx
 import { useRootStore } from "@next-mobx-store/hooks";
@@ -69,9 +76,9 @@ export default function SomeComponent() {
 
 
 
-**Hydration Store**
+### Hydration Store
 
-서버사이드에서 serialize 된 데이터가 hydration 되려면  `IHydrationStore` 인터페이스를 구현하고 있는 스토어가 getServerSideProps, getStaticProps, getStaticPaths의 리턴값에 있어야합니다.
+서버사이드에서 serialize 된 데이터가 hydration 되려면  `IHydrationStore` 인터페이스를 구현하고 있는 스토어가 getServerSideProps, getStaticProps의 리턴값에 있어야합니다.
 
 ```tsx
 // IHydrationStore
