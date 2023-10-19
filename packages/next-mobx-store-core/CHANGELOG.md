@@ -1,5 +1,16 @@
 # @next-mobx-store/core
 
+## 0.2.0
+
+### Minor Changes
+
+- update readme
+
+### Patch Changes
+
+- Updated dependencies
+  - @next-mobx-store/type@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
