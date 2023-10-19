@@ -30,7 +30,6 @@
     "typescript": "5.2.2"
   },
   "workspaces": [
-    "apps/*",
     "packages/*"
   ],
   "dependencies": {
