@@ -1,7 +1,11 @@
 {
   "name": "eslint-config-custom",
   "license": "MIT",
+  "version": "0.0.0",
   "main": "index.js",
+  "scripts": {
+    "build": "tsup"
+  },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.19",
     "@types/eslint": "^8.44.2",

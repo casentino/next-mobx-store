@@ -22,6 +22,7 @@
     "@types/jest": "^29.5.4",
     "@types/node": "20.5.3",
     "eslint": "^8.0.1",
+    "eslint-config-custom": "workspace:^",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-turbo": "^1.10.13",
     "prettier": "^3.0.2",
@@ -34,7 +35,6 @@
   ],
   "dependencies": {
     "@changesets/cli": "^2.26.1",
-    "eslint-config-custom": "workspace:^",
     "next": "^13.4.19",
     "tsup": "^6.7.0"
   },
