@@ -1,5 +1,5 @@
 import {
-  observable, isObservable, isBoxedObservable, ObservableMap, ObservableSet,
+  observable, isObservable, ObservableMap, ObservableSet,
 } from 'mobx';
 
 import { DesrializedStore, HydrationStore } from '@next-mobx-store/type';
@@ -83,9 +83,8 @@ describe('hydration util test', () => {
   it('deserialize result have to observable values', () => {
     const deserialize = deserializeStore(aotStore, serialize);
     storeKeys.forEach((key) => {
-      const property =				deserialize[key as keyof DesrializedStore<AllObservableTypeStore, HydrationStore<AllObservableTypeStore>>];
+      const property = deserialize[key as keyof DesrializedStore<AllObservableTypeStore, HydrationStore<AllObservableTypeStore>>];
       if (property !== undefined) {
-        console.log(property);
         expect(isObservable(property)).toBeTruthy();
       }
     });
