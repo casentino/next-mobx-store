@@ -1,22 +1,17 @@
 import { initializeRootStore } from '@next-mobx-store/core';
-import type { HydrationDataType, HydrationLocalStoreType, IRootStore } from '@next-mobx-store/type';
-import type { AppProps } from 'next/app';
+import type { HydrationDataType } from '@next-mobx-store/type';
+import type { AppInitialProps } from 'next/app';
 import { useMemo } from 'react';
 
-export default function useHydrateProps<P extends Omit<AppProps<{
-  hydrationData?: HydrationDataType, hydrationLocalStore?: HydrationLocalStoreType;
-}>, 'Component'>>(props: P) {
-  const { pageProps, ...other } = props;
-  const store = useMemo(() => {
-    if (!pageProps) return {};
-    return initializeRootStore(pageProps.hydrationData)
-  }, []);
+type UseHydratePropsParameter = AppInitialProps<{
+  hydrationData?: HydrationDataType
+}>['pageProps']
 
-  if (!pageProps) {
-    return { store, props };
-  }
-  const { hydrationLocalStore } = pageProps;
+export default function useHydrateProps<Props extends UseHydratePropsParameter>(pageProps: Props) {
+  const { hydrationData, ...props } = pageProps
+  const store = useMemo(() => initializeRootStore(pageProps.hydrationData), []);
+
   return {
-    store, props: { hydrationLocalStore, ...other }
+    store, props: { ...props }
   };
 }
