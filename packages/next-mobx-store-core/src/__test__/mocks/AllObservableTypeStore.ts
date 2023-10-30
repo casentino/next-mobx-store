@@ -1,5 +1,11 @@
 import { DesrializedStore, IHydrationStore } from '@next-mobx-store/type';
-import { ExcludeType } from '@next-mobx-store/type/dist/Utils';
+
+type ExcludeType<T, E> = Pick<
+  T,
+  {
+    [K in keyof T]: T[K] extends E ? never : K;
+  }[keyof T]
+>;
 
 import {
   ObservableMap,
@@ -35,8 +41,8 @@ export default class AllObservableTypeStore implements IHydrationStore {
   private _setOptionalState?: Set<string>;
 
   private _observableMapState: ObservableMap<string, any> = observable.map<
-  string,
-  any
+    string,
+    any
   >();
 
   private _observableMapOptionalState?: ObservableMap<string, any>;

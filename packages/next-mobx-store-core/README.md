@@ -52,7 +52,7 @@ import RootStore from '../store/RootStore';
 createRootStore(new RootStore());
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { store, ...props } = useHydrateProps(pageProps);
+  const { store, props } = useHydrateProps(pageProps);
   return (
     <RootStoreProvider store={store}>
       <Component {...props} />

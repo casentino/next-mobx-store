@@ -1,5 +1,5 @@
 {
-	"extends": "@next-mobx-store/tsconfig/react-library.json",
-	"include": ["src/**/*.ts"],
+	"extends": "@next-mobx-store/tsconfig/react-library.json",   
+	"include": ["src/**/*.ts", "src/**/*.tsx"],
 	"exclude": ["dist", "node_modules"]
 }
