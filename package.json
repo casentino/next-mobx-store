@@ -9,7 +9,7 @@
     "test": "turbo run test",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "yarn build && changeset publish && changeset tag && git push --tags"
+    "release": "changeset publish && changeset tag && git push --tags"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.10",

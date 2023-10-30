@@ -1,5 +1,17 @@
 # @next-mobx-store/hooks
 
+## 0.2.0
+
+### Minor Changes
+
+- useLocalHydrateStores 삭제
+
+### Patch Changes
+
+- Updated dependencies
+  - @next-mobx-store/core@0.2.0
+  - @next-mobx-store/type@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
