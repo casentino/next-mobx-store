@@ -1,10 +1,16 @@
 # @next-mobx-store/type
 
-## 0.2.0
+## 0.3.0
 
 ### Minor Changes
 
 - HydrateHooks type 제거
+
+## 0.2.0
+
+### Minor Changes
+
+- 
 
 ## 0.1.0
 
