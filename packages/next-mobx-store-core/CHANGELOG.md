@@ -15,7 +15,7 @@
 
 ### Minor Changes
 
--
+- update readme
 
 ### Patch Changes
 

@@ -10,7 +10,7 @@
 
 ### Minor Changes
 
-- 
+- update readme
 
 ## 0.1.0
 
