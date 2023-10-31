@@ -37,6 +37,7 @@ yarn-error.log*
 
 # *.tgz
 packages/**/dist/*
+packages/**/_release
 node_modules/
 
 
