@@ -5318,7 +5318,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-turbo@npm:*, eslint-plugin-turbo@npm:1.10.13, eslint-plugin-turbo@npm:^1.10.13":
+"eslint-plugin-turbo@npm:*":
+  version: 1.10.16
+  resolution: "eslint-plugin-turbo@npm:1.10.16"
+  dependencies:
+    dotenv: 16.0.3
+  peerDependencies:
+    eslint: ">6.6.0"
+  checksum: 00fdbd2cb956b3e9972c84169bb190bafaa274418989508bf52a5d1b5f7df0e850eb60fc702fedbc34477dcebc3e06450de0b81d8e30b56e061ced850e8cb8e3
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-turbo@npm:1.10.13, eslint-plugin-turbo@npm:^1.10.13":
   version: 1.10.13
   resolution: "eslint-plugin-turbo@npm:1.10.13"
   dependencies:
