@@ -1,5 +1,5 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "./packages/next-mobx-store-tsconfig/base.json",
-    "exclude": ["apps", "**/*.js"]
+    "exclude": ["apps", "**/*.js", "**/_release"]
 }
