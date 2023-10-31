@@ -1,8 +1,7 @@
 {
   "name": "@next-mobx-store/type",
   "version": "0.5.0",
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.d.ts",
+  "main": "./src/index.ts",
   "license": "MIT",
   "sideEffects": false,
   "files": [
@@ -14,7 +13,9 @@
   },
   "publishConfig": {
     "access": "public",
-    "directory": "./_release/package"
+    "directory": "./_release/package",
+    "types": "./dist/index.d.ts",
+    "main": "./dist/index.d.ts"
   },
   "repository": {
     "type": "git",
