@@ -1,6 +1,6 @@
 {
   "name": "@next-mobx-store/type",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.d.ts",
   "license": "MIT",

@@ -1,5 +1,11 @@
 # @next-mobx-store/type
 
+## 0.5.0
+
+### Minor Changes
+
+- FIX: workspace protocol issue
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @next-mobx-store/hooks
 
+## 0.5.0
+
+### Minor Changes
+
+- FIX: workspace protocol issue
+
+### Patch Changes
+
+- Updated dependencies
+  - @next-mobx-store/core@0.5.0
+  - @next-mobx-store/type@0.5.0
+
 ## 0.4.0
 
 ### Minor Changes
