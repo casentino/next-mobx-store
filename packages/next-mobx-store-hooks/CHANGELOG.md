@@ -1,5 +1,12 @@
 # @next-mobx-store/hooks
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @next-mobx-store/core@0.7.0
+
 ## 0.6.0
 
 ### Minor Changes
