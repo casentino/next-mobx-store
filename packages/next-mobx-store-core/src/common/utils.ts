@@ -1,4 +1,4 @@
-import { HydrationDataType, IHydrationStore } from '@next-mobx-store/type';
+import type { HydrationDataType, IHydrationStore } from '@next-mobx-store/type';
 
 export const getIsServer = () => typeof window === 'undefined';
 
