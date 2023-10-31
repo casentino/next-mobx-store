@@ -3,6 +3,7 @@ nmMode: hardlinks-local
 compressionLevel: 0
 lockfileFilename: ./yarn.nm.lock
 enableGlobalCache: false
+enableTransparentWorkspaces: false
 supportedArchitectures:
   cpu:
     - current
