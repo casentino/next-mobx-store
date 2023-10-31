@@ -15,8 +15,8 @@
     "build": "tsup"
   },
   "dependencies": {
-    "@next-mobx-store/core": "workspace:*",
-    "@next-mobx-store/type": "workspace:*",
+    "@next-mobx-store/core": "workspace:^",
+    "@next-mobx-store/type": "workspace:^",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.14",
     "next": "^13.4.19",
@@ -25,7 +25,8 @@
     "typescript": "^5.1.6"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "./_release/package"
   },
   "repository": {
     "type": "git",

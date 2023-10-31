@@ -1,17 +1,14 @@
-nodeLinker: node-modules
-nmMode: hardlinks-local
 compressionLevel: 0
-lockfileFilename: ./yarn.nm.lock
+
 enableGlobalCache: false
+
 enableTransparentWorkspaces: false
-supportedArchitectures:
-  cpu:
-    - current
-  libc:
-    - current
-  os:
-    - current
-yarnPath: .yarn/releases/yarn-3.6.4.cjs
+
+lockfileFilename: ./yarn.nm.lock
+
+nmMode: hardlinks-local
+
+nodeLinker: node-modules
 
 packageExtensions:
   "@testing-library/react@*":
@@ -40,3 +37,17 @@ packageExtensions:
   ts-jest@*:
     dependencies:
       jest: "*"
+
+plugins:
+  - path: .yarn/plugins/@yarnpkg/plugin-workspace-tools.cjs
+    spec: "@yarnpkg/plugin-workspace-tools"
+
+supportedArchitectures:
+  cpu:
+    - current
+  libc:
+    - current
+  os:
+    - current
+
+yarnPath: .yarn/releases/yarn-3.6.4.cjs

@@ -3,13 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "changeset": "changeset",
+    "allpackages": "yarn workspaces foreach --no-private --verbose",
+    "build": "yarn workspaces foreach run build",
+    "build:release": "yarn allpackages exec rm -rf _release && yarn allpackages pack && yarn allpackages exec \"mkdir _release && tar zxvf package.tgz --directory _release && rm package.tgz\"",
     "version-packages": "changeset version",
-    "release": "changeset publish"
+    "release": "yarn build:release && changeset publish"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.10",

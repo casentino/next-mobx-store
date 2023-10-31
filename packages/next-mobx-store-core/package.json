@@ -33,7 +33,8 @@
     "typescript": "^5.1.6"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "./_release/package"
   },
   "repository": {
     "type": "git",
