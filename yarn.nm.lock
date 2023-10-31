@@ -2374,7 +2374,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next-mobx-store/core@workspace:*, @next-mobx-store/core@workspace:packages/next-mobx-store-core":
+"@next-mobx-store/core@workspace:^, @next-mobx-store/core@workspace:packages/next-mobx-store-core":
   version: 0.0.0-use.local
   resolution: "@next-mobx-store/core@workspace:packages/next-mobx-store-core"
   dependencies:
@@ -2399,9 +2399,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@next-mobx-store/hooks@workspace:packages/next-mobx-store-hooks"
   dependencies:
-    "@next-mobx-store/core": "workspace:*"
+    "@next-mobx-store/core": "workspace:^"
     "@next-mobx-store/tsconfig": "workspace:^"
-    "@next-mobx-store/type": "workspace:*"
+    "@next-mobx-store/type": "workspace:^"
     "@swc/core": ^1.3.78
     "@testing-library/jest-dom": ^6.1.4
     "@testing-library/react": ^14.0.0
@@ -2429,7 +2429,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@next-mobx-store/type@workspace:*, @next-mobx-store/type@workspace:^, @next-mobx-store/type@workspace:packages/next-mobx-store-type":
+"@next-mobx-store/type@workspace:^, @next-mobx-store/type@workspace:packages/next-mobx-store-type":
   version: 0.0.0-use.local
   resolution: "@next-mobx-store/type@workspace:packages/next-mobx-store-type"
   dependencies:
