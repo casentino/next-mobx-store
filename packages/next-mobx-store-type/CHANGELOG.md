@@ -1,5 +1,11 @@
 # @next-mobx-store/type
 
+## 0.6.0
+
+### Minor Changes
+
+- path modify
+
 ## 0.5.0
 
 ### Minor Changes
