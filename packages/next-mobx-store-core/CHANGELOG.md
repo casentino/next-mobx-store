@@ -1,5 +1,11 @@
 # @next-mobx-store/core
 
+## 0.7.0
+
+### Minor Changes
+
+- RootStoreProvider export
+
 ## 0.6.0
 
 ### Minor Changes
