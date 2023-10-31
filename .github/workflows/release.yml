@@ -6,7 +6,6 @@ on:
       - main
 env:
   YARN_RC_FILENAME: '.yarnrc.nm.yml'
-  YARN_LOCK_FILENAME: '.yarnrc.nm.lock'
   PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 'true'
 
