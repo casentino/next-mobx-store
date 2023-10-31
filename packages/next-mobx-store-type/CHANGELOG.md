@@ -1,5 +1,11 @@
 # @next-mobx-store/type
 
+## 0.4.0
+
+### Minor Changes
+
+- release
+
 ## 0.3.0
 
 ### Minor Changes
