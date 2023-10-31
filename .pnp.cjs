@@ -3914,7 +3914,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@swc/core", "virtual:5aa0fe4d41497e8fe6ef152c8121d9c85593947db707479d736dee754ec0b7c9c79ac3487966b88cf2c263046d3b8b80845a79710ced7868a4e96a7550ea39cc#npm:1.3.80"],\
             ["@testing-library/jest-dom", "virtual:5aa0fe4d41497e8fe6ef152c8121d9c85593947db707479d736dee754ec0b7c9c79ac3487966b88cf2c263046d3b8b80845a79710ced7868a4e96a7550ea39cc#npm:6.1.4"],\
             ["@testing-library/react", "virtual:c0c4b2b8f41f22c26cc3bb1bb35ae39a627fda3dc7397e5aacea5986dcea97bdc93a64a1204e17373e29edba1a4e4e9d8a76f4a0186c029aaf59c20e85cec309#npm:14.0.0"],\
-            ["@testing-library/react-hooks", "virtual:c0c4b2b8f41f22c26cc3bb1bb35ae39a627fda3dc7397e5aacea5986dcea97bdc93a64a1204e17373e29edba1a4e4e9d8a76f4a0186c029aaf59c20e85cec309#npm:8.0.1"],\
             ["@types/jest", "npm:29.5.4"],\
             ["@types/react", "npm:18.2.21"],\
             ["@types/react-dom", "npm:18.2.14"],\
@@ -4402,38 +4401,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react-dom",\
             "@types/react",\
             "react-dom",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@testing-library/react-hooks", [\
-        ["npm:8.0.1", {\
-          "packageLocation": "./.yarn/cache/@testing-library-react-hooks-npm-8.0.1-e0c7be6ffb-7fe44352e9.zip/node_modules/@testing-library/react-hooks/",\
-          "packageDependencies": [\
-            ["@testing-library/react-hooks", "npm:8.0.1"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:c0c4b2b8f41f22c26cc3bb1bb35ae39a627fda3dc7397e5aacea5986dcea97bdc93a64a1204e17373e29edba1a4e4e9d8a76f4a0186c029aaf59c20e85cec309#npm:8.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@testing-library-react-hooks-virtual-2563187d98/0/cache/@testing-library-react-hooks-npm-8.0.1-e0c7be6ffb-7fe44352e9.zip/node_modules/@testing-library/react-hooks/",\
-          "packageDependencies": [\
-            ["@testing-library/react-hooks", "virtual:c0c4b2b8f41f22c26cc3bb1bb35ae39a627fda3dc7397e5aacea5986dcea97bdc93a64a1204e17373e29edba1a4e4e9d8a76f4a0186c029aaf59c20e85cec309#npm:8.0.1"],\
-            ["@babel/runtime", "npm:7.23.2"],\
-            ["@types/react", "npm:18.2.21"],\
-            ["@types/react-dom", "npm:18.2.14"],\
-            ["@types/react-test-renderer", null],\
-            ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:c0c4b2b8f41f22c26cc3bb1bb35ae39a627fda3dc7397e5aacea5986dcea97bdc93a64a1204e17373e29edba1a4e4e9d8a76f4a0186c029aaf59c20e85cec309#npm:18.2.0"],\
-            ["react-error-boundary", "virtual:2563187d98c2dcb17b1dc070270e486eb4946b1931d95ea446da4ebcb1bc2ebabe23241653d99f9dc766c6aee8e18df8f370cf74915f6cbbee9aa7a53519cdb0#npm:3.1.4"],\
-            ["react-test-renderer", null]\
-          ],\
-          "packagePeers": [\
-            "@types/react-dom",\
-            "@types/react-test-renderer",\
-            "@types/react",\
-            "react-dom",\
-            "react-test-renderer",\
             "react"\
           ],\
           "linkType": "HARD"\
@@ -11258,29 +11225,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["loose-envify", "npm:1.4.0"],\
             ["react", "npm:18.2.0"],\
             ["scheduler", "npm:0.23.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/react",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["react-error-boundary", [\
-        ["npm:3.1.4", {\
-          "packageLocation": "./.yarn/cache/react-error-boundary-npm-3.1.4-2310dba89e-f36270a5d7.zip/node_modules/react-error-boundary/",\
-          "packageDependencies": [\
-            ["react-error-boundary", "npm:3.1.4"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:2563187d98c2dcb17b1dc070270e486eb4946b1931d95ea446da4ebcb1bc2ebabe23241653d99f9dc766c6aee8e18df8f370cf74915f6cbbee9aa7a53519cdb0#npm:3.1.4", {\
-          "packageLocation": "./.yarn/__virtual__/react-error-boundary-virtual-6783f0c40b/0/cache/react-error-boundary-npm-3.1.4-2310dba89e-f36270a5d7.zip/node_modules/react-error-boundary/",\
-          "packageDependencies": [\
-            ["react-error-boundary", "virtual:2563187d98c2dcb17b1dc070270e486eb4946b1931d95ea446da4ebcb1bc2ebabe23241653d99f9dc766c6aee8e18df8f370cf74915f6cbbee9aa7a53519cdb0#npm:3.1.4"],\
-            ["@babel/runtime", "npm:7.23.2"],\
-            ["@types/react", "npm:18.2.21"],\
-            ["react", "npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/react",\
