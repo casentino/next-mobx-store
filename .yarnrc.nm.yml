@@ -1,9 +1,16 @@
-immutablePatterns:
-  - .pnp.*
-
-initScope: next-mobx-store
-
-nodeLinker: pnp
+nodeLinker: node-modules
+nmMode: hardlinks-local
+compressionLevel: 0
+lockfileFilename: ./yarn.nm.lock
+enableGlobalCache: false
+supportedArchitectures:
+  cpu:
+    - current
+  libc:
+    - current
+  os:
+    - current
+yarnPath: .yarn/releases/yarn-3.6.4.cjs
 
 packageExtensions:
   "@testing-library/react@*":
@@ -32,9 +39,3 @@ packageExtensions:
   ts-jest@*:
     dependencies:
       jest: "*"
-
-pnpEnableEsmLoader: true
-
-preferInteractive: true
-
-yarnPath: .yarn/releases/yarn-3.6.4.cjs

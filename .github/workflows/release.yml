@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+env:
+  YARN_RC_FILENAME: '.yarnrc.nm.yml'
+  YARN_LOCK_FILENAME: '.yarnrc.nm.lock'
+  PRISMA_SKIP_POSTINSTALL_GENERATE: 'true'
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 'true'
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -15,24 +20,30 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 16.x
+      - name: Setup Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
 
       - name: Install Dependencies
-        run: yarn
+        uses: ./.github/actions/yarn-nm-install
+
       - name: Creating .npmrc
         run: | 
           cat << EOF > "$HOME/.npmrc"
             email=opterk@gmail.com
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
-        env:
+        env:          
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}      
+      - name: Lint
+        run: yarn lint
 
       - name: Build Packages
         run: yarn build
+        
+      - name: Test
+        run: yarn test
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
